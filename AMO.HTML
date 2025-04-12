@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Te extraño, mi amor</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #0b1a3d, #3f2b4f);
+      font-family: 'Comic Sans MS', cursive;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 3em;
+      color: #c9a0dc;
+      margin-top: 50px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    p {
+      font-size: 1.5em;
+      color: #e0b3ff;
+      margin-bottom: 20px;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    .drawing {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    svg {
+      width: 200px;
+      height: auto;
+    }
+
+    /* Botón mágico */
+    .boton {
+      margin-top: 30px;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      background-color: #c084fc;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      animation: fadeIn 4s ease-in-out;
+    }
+
+    .boton:hover {
+      transform: scale(1.1);
+      background-color: #d9a7ff;
+    }
+
+    /* Carta secreta */
+    .carta {
+      display: none;
+      margin: 40px auto;
+      padding: 20px;
+      width: 80%;
+      max-width: 500px;
+      background-color: #fff0ff;
+      color: #4a235a;
+      border: 2px dashed #c084fc;
+      border-radius: 15px;
+      box-shadow: 0 0 15px #b38bfc;
+      font-size: 1.2em;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    /* Animaciones */
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: #c084fc;
+      transform: rotate(45deg);
+      animation: rise 5s linear infinite;
+      opacity: 0.6;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: #c084fc;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes rise {
+      0% {
+        bottom: -20px;
+        opacity: 0.6;
+      }
+      100% {
+        bottom: 100%;
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+   <h1>Te extraño, mi amor 💖</h1>
+  <p>TE AMO ESTA Y TODAS LAS VIDAS🌸🐭</p>
+  <p>UNA RATITA CON UNA FLOR PARA TI :3</p>
+
+  <div class="drawing">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <!-- Cuerpo -->
+      <ellipse cx="100" cy="120" rx="50" ry="30" fill="#bbb"/>
+      <!-- Cabeza -->
+      <circle cx="130" cy="100" r="20" fill="#bbb"/>
+      <!-- Orejas -->
+      <circle cx="120" cy="80" r="10" fill="#bbb"/>
+      <circle cx="140" cy="80" r="10" fill="#bbb"/>
+      <!-- Ojos -->
+      <circle cx="125" cy="95" r="3" fill="#000"/>
+      <circle cx="135" cy="95" r="3" fill="#000"/>
+      <!-- Nariz -->
+      <circle cx="130" cy="105" r="2" fill="#000"/>
+      <!-- Cola -->
+      <path d="M60 120 Q30 130, 10 100" stroke="#d08aff" stroke-width="3" fill="none"/>
+      <!-- Flor -->
+      <circle cx="70" cy="70" r="5" fill="#c9a0dc"/>
+      <circle cx="70" cy="65" r="5" fill="#d8b0ff"/>
+      <circle cx="65" cy="70" r="5" fill="#d8b0ff"/>
+      <circle cx="70" cy="75" r="5" fill="#d8b0ff"/>
+      <circle cx="75" cy="70" r="5" fill="#d8b0ff"/>
+      <line x1="100" y1="120" x2="70" y2="70" stroke="#7fffd4" stroke-width="2"/>
+    </svg>
+  </div>
+
+  <!-- UNA Carta -->
+  <button class="boton" onclick="mostrarCarta()">💌 Ver cartita secreta</button>
+
+  <!-- Carta secreta -->
+  <div class="carta" id="carta">
+    vidaaa miaaaaa...<br><br>
+    Muy loca yo haciendo esto, pero esque te amo muchote guapo💜<br><br>
+    te extraño y muero por verte pronto mi vida linda<br>
+    ¡que se pase rapido el tiempo para poder estar nuevamente en tus brazos, y poder decir cuanto te amo y la forma tan increible que iluminas mis dias , te adoro mi señor eres lo mas hermoso que hay,<br>
+    💖 Nunca dudes de mi amor por ti, te amo esta y todas las vidas 💖
+  </div>
+
+  <!-- Corazoncitos flotando -->
+  <script>
+    for (let i = 0; i < 30; i++) {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDelay = Math.random() * 5 + "s";
+      heart.style.width = heart.style.height = (Math.random() * 10 + 10) + "px";
+      document.body.appendChild(heart);
+    }
+
+    function mostrarCarta() {
+      document.getElementById("carta").style.display = "block";
+      window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+    }
+  </script>
+</body>
+</html>
